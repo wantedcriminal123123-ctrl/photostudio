@@ -1,0 +1,267 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #f2f2f2;
+    --accent-color: #cca43b; /* gold-ish */
+    --nav-color: #888;
+    --border-color: #cca43b;
+}
+
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --text-color: #1a1a1a;
+    --accent-color: #cca43b;
+    --nav-color: #555;
+    --border-color: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid #333;
+}
+
+[data-theme="light"] header {
+    border-bottom: 1px solid #ccc;
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: var(--nav-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--accent-color);
+    color: #111;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 6rem 10%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Approach Section */
+.approach-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: flex-start;
+}
+
+.content-left h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.content-left p {
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+    max-width: 95%;
+    font-weight: 300;
+}
+
+.content-left ul {
+    list-style: disc inside;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    color: var(--nav-color);
+}
+
+.content-left ul li {
+    margin-bottom: 0.8rem;
+}
+
+.images-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.main-image img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    height: 450px;
+    filter: brightness(0.9);
+    transition: filter 0.3s;
+}
+
+.main-image img:hover {
+    filter: brightness(1);
+}
+
+.sub-images {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.sub-images img {
+    width: calc(50% - 0.75rem);
+    border-radius: 4px;
+    object-fit: cover;
+    height: 250px;
+}
+
+/* About Section */
+.about-section {
+    background-color: #0a0a0a;
+}
+[data-theme="light"] .about-section {
+    background-color: #eaeaea;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.about-text-box {
+    border: 1px solid var(--border-color);
+    padding: 4rem;
+    width: 60%;
+    position: relative;
+    z-index: 2;
+    background-color: var(--bg-color);
+}
+
+.about-text-box h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text-box p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.about-image {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.contact-container .insights-text {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+    color: var(--nav-color);
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .approach-section {
+        grid-template-columns: 1fr;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .about-text-box {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 2rem;
+    }
+    .about-image {
+        position: static;
+        width: 100%;
+    }
+    .about-image img {
+        height: auto;
+    }
+}
